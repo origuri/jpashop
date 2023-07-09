@@ -2,6 +2,7 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,14 +11,11 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)// 조회만 하는 경우에 트렌젝션을 따로 걸어주고 readOnly를 해주면 성능 최적화가 된다.
+@RequiredArgsConstructor
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    @Autowired
-    public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
 
     // 회원 가입 - 같은 이름을 가진 사람은 가입 x
     @Transactional
