@@ -106,8 +106,4 @@ class OrderServiceTest {
         Assertions.assertEquals(OrderStatus.CANCEL, getOrder.getStatus(), "취소시 상태는 캔슬이다.");
     }
 
-    @Test
-    void 상품주문_재고수량초과(){
-
-    }
 }
