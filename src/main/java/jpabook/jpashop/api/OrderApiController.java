@@ -8,6 +8,7 @@ import jpabook.jpashop.repository.OrderRepository;
 import jpabook.jpashop.repository.OrderSearch;
 import jpabook.jpashop.repository.query.OrderQueryDto;
 import jpabook.jpashop.repository.query.OrderQueryRepository;
+import jpabook.jpashop.repository.query.orderFlatDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -95,5 +96,10 @@ public class OrderApiController {
     @GetMapping("/api/v5/orders")
     public List<OrderQueryDto> ordersV5(){
         return orderQueryRepository.findAllByDto_optimization();
+    }
+
+    @GetMapping("/api/v6/orders")
+    public List<orderFlatDto> ordersV6(){
+        return orderQueryRepository.findAllByDto_flat();
     }
 }
